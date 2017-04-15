@@ -1,0 +1,7 @@
+name: automessenger
+author: pongy20
+version: 1.0.1
+main: de.automessenger.main.core
+command:
+     automessenger:
+          aliases: [am]

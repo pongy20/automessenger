@@ -1,0 +1,7 @@
+am --> help page
+am help
+am start
+am stop
+am add <args>
+am list
+am remove <ID>
