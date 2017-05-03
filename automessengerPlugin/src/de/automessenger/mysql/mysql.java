@@ -44,7 +44,7 @@ public class mysql {
 	}
 	public static void createTable() {
 		try {
-			PreparedStatement ps = mysql.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS messanges "
+			PreparedStatement ps = mysql.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS messages "
 					+ " (id INT NOT NULL primary key AUTO_INCREMENT, message VARCHAR(100))");
 			ps.executeUpdate();
 		} catch (SQLException e) {
