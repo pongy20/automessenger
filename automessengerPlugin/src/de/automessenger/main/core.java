@@ -3,8 +3,9 @@ package de.automessenger.main;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import de.automessenger.command.automessengerCMD;
+import de.automessenger.fileconfig.MessengerConfig;
+import de.automessenger.fileconfig.mysqlConfig;
 import de.automessenger.mysql.mysql;
-import de.automessenger.mysql.mysqlConfig;
 
 public class core extends JavaPlugin {
 
@@ -18,6 +19,9 @@ public class core extends JavaPlugin {
 		
 		mysql.connect();
 		mysql.createTable();
+		
+		MessengerConfig.setConfig();
+		MessengerConfig.readConfig();
 		
 		registerCommands();
 		

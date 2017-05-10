@@ -1,9 +1,11 @@
-package de.automessenger.mysql;
+package de.automessenger.fileconfig;
 
 import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.configuration.file.YamlConfiguration;
+
+import de.automessenger.mysql.mysql;
 
 public class mysqlConfig {
 	private static File getConfigFile() {

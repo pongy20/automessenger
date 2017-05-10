@@ -21,22 +21,26 @@ public class messengerService {
 	
 	public static void startMessenger(final ArrayList<String> msg) {
 		
-		sched = Bukkit.getScheduler().scheduleSyncRepeatingTask(core.getInstance(), new Runnable() {
-			
-			@Override
-			public void run() {
+		if (msg.size() != 0) {
+			sched = Bukkit.getScheduler().scheduleSyncRepeatingTask(core.getInstance(), new Runnable() {
 				
-				if (actual < msg.size()) {
-					Bukkit.broadcastMessage(msg.get(actual));
-					actual = actual + 1;
-				} else {
-					actual = 0;
-					Bukkit.broadcastMessage(msg.get(actual));
-					actual = actual + 1;
+				@Override
+				public void run() {
+					
+					if (actual < msg.size()) {
+						sendMessage(msg.get(actual));
+						actual = actual + 1;
+					} else {
+						actual = 0;
+						sendMessage(msg.get(actual));
+						actual = actual + 1;
+					}
+					
 				}
-				
-			}
-		}, 0, 20 * interval);
+			}, 0, 20 * interval);
+		} else {
+			Bukkit.getConsoleSender().sendMessage(ChatColor.RED + " Can't start the automessenger! Can't find any messages!");
+		}
 	}
 	public static void stopMessenger() {
 		Bukkit.getScheduler().cancelTask(sched);
@@ -53,7 +57,7 @@ public class messengerService {
 	public static void sendMessage(String message) {
 		for (Player all : Bukkit.getOnlinePlayers()) {
 			if (!toggled.contains(all)) {
-				all.sendMessage(messages.serverName + " " + ChatColor.translateAlternateColorCodes('&', message));
+				all.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.serverName) + " " + ChatColor.translateAlternateColorCodes('&', message));
 			}
 		}
 	}

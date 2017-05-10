@@ -8,7 +8,7 @@ import de.automessenger.mysql.messengerMySQL;
 
 public class messages {
 
-	public static String prefix = ChatColor.BLUE + "Automessenger" + ChatColor.GOLD + " »»";
+	public static String prefix = ChatColor.BLUE + "Automessenger" + ChatColor.GOLD + " »»" + ChatColor.WHITE;
 	public static String noperm = prefix + ChatColor.RED + " sorry but you don't have permissions to do that!";
 	
 	public static String MessageAdded = prefix + ChatColor.GREEN + " message have been added!";
