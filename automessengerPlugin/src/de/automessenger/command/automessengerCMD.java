@@ -31,8 +31,11 @@ public class automessengerCMD implements CommandExecutor {
 					sender.sendMessage(messages.prefix + " Messenger have been stopped!");
 				} else if (args[0].equalsIgnoreCase("list")) {
 					messages.sendMessageList(sender);
+				} else if (args[0].equalsIgnoreCase("reset")) {
+					messengerMySQL.resetTable("messages");
+					sender.sendMessage(messages.prefix + " Messages have been resetet!");
 				} else {
-					//TODO: Code
+					
 				}
 			} else if (args.length == 2) {
 				if (args[0].equalsIgnoreCase("remove")) {

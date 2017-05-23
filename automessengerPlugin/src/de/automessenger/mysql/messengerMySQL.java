@@ -52,5 +52,21 @@ public class messengerMySQL {
 		}
 		return false;
 	}
-	
+	public static void deleteAllMessages() {
+		try {
+			PreparedStatement ps = mysql.getConnection().prepareStatement("DELETE FROM messages");
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void resetTable(String tablename) {
+		deleteAllMessages();
+		try {
+			PreparedStatement ps = mysql.getConnection().prepareStatement("ALTER TABLE " + tablename + " AUTO_INCREMENT = 1");
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
